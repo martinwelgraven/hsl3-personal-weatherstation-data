@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Logic - 16100 - HS Weatherdata Ecowitt</title>
+        <style>
+            body { background: none; }
+        </style>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    </head>
+    <body>
+        <div class="top-title">16100 - HS Weatherdata Ecowitt</div>
+        <div class="nav"><a href="javascript:history.back()">Previous</a> / <a href="javascript:history.forward()">Next</a> | <a href="hlpsearch.html">Search</a> | <a href="index.html">Help</a> / <a href="logic.html">Logic</a> / 16100 - HS Weatherdata Ecowitt</div><!-- Inhaltsverzeichnis --><div class="index">
+            <div class="index-title"><a id="doc_index_1_"></a>Contents</div>
+            <div class="t-line">
+                <div class="t-chapter">
+                    <a href="#auto_index_anchor_1_">1.</a>
+                </div>
+                <div class="t-text"><a href="#auto_index_anchor_1_">Description</a></div>
+            </div>
+            <div class="t-line">
+                <div class="t-chapter">
+                    <a href="#auto_index_anchor_2_">2.</a>
+                </div>
+                <div class="t-text"><a href="#auto_index_anchor_2_">Inputs</a></div>
+            </div>
+            <div class="t-line">
+                <div class="t-chapter">
+                    <a href="#auto_index_anchor_3_">3.</a>
+                </div>
+                <div class="t-text"><a href="#auto_index_anchor_3_">Outputs</a></div>
+            </div>
+            <div class="t-line">
+                <div class="t-chapter">
+                    <a href="#auto_index_anchor_4_">4.</a>
+                </div>
+                <div class="t-text"><a href="#auto_index_anchor_4_">Other</a></div>
+            </div><!-- Kapitel 5 "Ähnliche Funktionen" ist optional.  -->
+
+        </div><!-- Inhalt --><div class="content"><!-- Kapitel 1 - Beschreibung --><div class="topic">
+                <h2 class="t-line"><a id="auto_index_anchor_1_"></a> <span class="t-chapter">1.</span> <span class="t-text">Description</span></h2>
+                <div class="descr">A simple logic node to process an JSON message based on the Ecowitt protocol. Version 1.0 contains solely the version for a weatherstation based on the protocol used by the Alecto WS5500.<br></div>
+                <!--<div class="alert-box ibox-warn">
+                    <div class="box-title">Important</div>
+                    <div class="box-text">
+                        <div class="descr">Warning text</div>
+                    </div>
+                </div>
+                <div class="alert-box ibox-hint">
+                    <div class="box-title">Note</div>
+                    <div class="box-text">
+                        <div class="descr">Note text</div>
+                    </div>
+                </div>-->
+            </div><!-- Kapitel 2 - Eingänge --><h2 class="t-line"><a id="auto_index_anchor_2_"></a> <span class="t-chapter">2.</span> <span class="t-text">Inputs</span></h2>
+            <div>
+                <table class="table-in">
+                    <tr>
+                        <th class="io-nr center">No.</th>
+                        <th class="io-name">Name</th>
+                        <th class="io-init center">Initialisation</th>
+                        <th class="io-descr">Description</th>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">1</td>
+                        <td class="io-name">E1 - Ecowitt JSON</td>
+                        <td class="io-init string center">&quot;&quot;</td>
+                        <td class="io-descr">
+                            <div class="descr">A valid JSON string with an Ecowitt message</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">2</td>
+                        <td class="io-name">E2 - Temperature to Celcius</td>
+                        <td class="io-init center">0</td>
+                        <td class="io-descr">
+                            <div class="descr">Either 0 (default) for output in Fahrenheit or a 1 for output in Celcius </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">2</td>
+                        <td class="io-name">E3 - Speed to km per hour</td>
+                        <td class="io-init center">0</td>
+                        <td class="io-descr">
+                            <div class="descr">Either 0 (default) for output in miles per hour or a 1 for output in kilometer per hour</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">2</td>
+                        <td class="io-name">E4 - Pressure to Bar</td>
+                        <td class="io-init center">0</td>
+                        <td class="io-descr">
+                            <div class="descr">Either 0 (default) for output in hectopascal or a 1 for output in bar</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">2</td>
+                        <td class="io-name">E5 - Length to mm</td>
+                        <td class="io-init center">0</td>
+                        <td class="io-descr">
+                            <div class="descr">Either 0 (default) for output in inch or a 1 for output in mm</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr input center">2</td>
+                        <td class="io-name">E5 - kPa to hPa or mbar</td>
+                        <td class="io-init center">0</td>
+                        <td class="io-descr">
+                            <div class="descr">Either 0 (default) for output in kPa, 1 for hPa or 2 of mbar</div>
+                        </td>
+                    </tr>
+                </table>
+            </div><!-- Kapitel 3 - Ausgänge --><h2 class="t-line"><a id="auto_index_anchor_3_"></a> <span class="t-chapter">3.</span> <span class="t-text">Outputs</span></h2>
+            <div>
+                <table class="table-out">
+                    <tr>
+                        <th class="io-nr center">No.</th>
+                        <th class="io-name">Name</th>
+                        <th class="io-init center">Initialisation</th>
+                        <th class="o-sbc center"><a href="logic2.html#_Toc17193931">SBC</a></th>
+                        <th class="io-descr">Description</th>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A1 - PASSKEY</td>
+                        <td class="io-init string center">&quot;&quot;</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">PASSKEY provided by the station</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A2 - Stationtype</td>
+                        <td class="io-init string center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Station type where the message originates from</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A3 - Date UTC</td>
+                        <td class="io-init string center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Data in UTC format</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A4 - Indoor temperature</td>
+                        <td class="io-init center">0.0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Temperature indoor</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A5 - Indoor humidity</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Humidity indoor</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A6 - Relative pressure</td>
+                        <td class="io-init center">0.0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Relative pressure</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A7 - Absolute pressure</td>
+                        <td class="io-init center">0.0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Absolute pressure</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A8 - Temperature</td>
+                        <td class="io-init center">0.0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Outdoor temperature</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A9 - Humidity</td>
+                        <td class="io-init string center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Outdoor humidity</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A10 - Wind direction</td>
+                        <td class="io-init center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Wind direction in text</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A11 - Wind speed</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Wind speed</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A12 - Wind gust</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Wind gust</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A13 - Max daily gust</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Maximum gust of today</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A14 - Current rain rate</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Current rain rate</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A15 - Event rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Average rain rate of current event</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A16 - Hourly rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Rain in latest hour</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A17 - Daily rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Rain of current day</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A18 - Weekly rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Rain in current week</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A19 - Montly rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Rain in current month</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A20 - Yearly rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Rain in current year</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A21 - Total rain</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Total of rain since start measurement</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A22 - Sun</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Solar radiation</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A23 - UV force</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Power of the current UV force</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A24 - Vaport Pressure Deficit</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr"> This is a measurement of the drying power of the atmosphere, often used for agriculture and greenhouse management to determine plant transpiration rates. It is typically expressed in kilopascals (kPa)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A24 - Battery</td>
+                        <td class="io-init center">0</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Battery stage</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A25 - Frequency</td>
+                        <td class="io-init string center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Frequency used for communication</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A26 - Model</td>
+                        <td class="io-init string center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Model of the ecowitt weatherstation</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="io-nr output center">1</td>
+                        <td class="io-name">A27 - Error</td>
+                        <td class="io-init string center">""</td>
+                        <td class="o-sbc center">sbc</td>
+                        <td class="io-descr">
+                            <div class="descr">Error message from this Logic Node.</div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="small">s = <a href="logic2.html#_Toc17193931">send</a>, sbc = <a href="logic2.html#_Toc17193931">send by change</a></div>
+            </div><!-- Kapitel 4 - Sonstiges --><h2 class="t-line"><a id="auto_index_anchor_4_"></a> <span class="t-chapter">4.</span> <span class="t-text">Other</span></h2>
+            <table class="table-logic-info">
+                <tr>
+                    <th>Recalculation during start:</th>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <th>Module is retentive:</th>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <th>Internal designation:</th>
+                    <td>16100</td>
+                </tr>
+                <tr>
+                    <th>Category:</th><td>Weatherdata</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </body>
+</html>

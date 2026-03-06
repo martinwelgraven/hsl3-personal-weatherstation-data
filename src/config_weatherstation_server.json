@@ -1,0 +1,226 @@
+{
+    "module": {
+        "category": "weather",
+        "context": "weatherstation_server",
+        "id": "14649",
+        "name": "Weatherstation Server",
+        "hsl_filename": "14649_weatherstation_server.hsl",
+        "version": "0.1.0",
+        "inputs": [
+            {
+                "type": "string",
+                "identifier": "in01",
+                "init_value": "",
+                "label": "Data (x-www-form-urlencoded)"
+            },
+            {
+                "type": "number",
+                "identifier": "in02",
+                "init_value": "1",
+                "label": "Temperature (1-Celcius, 0-Fahrenheit)"
+            },
+            {
+                "type": "number",
+                "identifier": "in03",
+                "init_value": "1",
+                "label": "Speed (1-km/h, 0-mph)"
+            },
+            {
+                "type": "number",
+                "identifier": "in04",
+                "init_value": "1",
+                "label": "Pressure (1-bar, 0-hPa)"
+            },
+            {
+                "type": "number",
+                "identifier": "in05",
+                "init_value": "1",
+                "label": "Length (1-mm, 0-inch)"
+            },
+            {
+                "type": "number",
+                "identifier": "in06",
+                "init_value": "1",
+                "label": "Length (2-mbar, 1-hPa, 0-kPa)"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "string",
+                "identifier": "out01",
+                "init_value": "",
+                "label": "PASSKEY"
+            },
+            {
+                "type": "string",
+                "identifier": "out02",
+                "init_value": "",
+                "label": "Stationtype"
+            },
+            {
+                "type": "string",
+                "identifier": "out03",
+                "init_value": "",
+                "label": "Date UTC"
+            },
+            {
+                "type": "number",
+                "identifier": "out04",
+                "init_value": "0.0",
+                "label": "Indoor temperature"
+            },
+            {
+                "type": "number",
+                "identifier": "out05",
+                "init_value": "0",
+                "label": "Indoor humidity"
+            },
+            {
+                "type": "number",
+                "identifier": "out06",
+                "init_value": "0.0",
+                "label": "Relative pressure"
+            },
+            {
+                "type": "number",
+                "identifier": "out07",
+                "init_value": "0.0",
+                "label": "Absolute pressure"
+            },
+            {
+                "type": "number",
+                "identifier": "out08",
+                "init_value": "0.0",
+                "label": "Temperature"
+            },
+            {
+                "type": "number",
+                "identifier": "out09",
+                "init_value": "0",
+                "label": "Humidity"
+            },
+            {
+                "type": "string",
+                "identifier": "out10",
+                "init_value": "",
+                "label": "Wind direction"
+            },
+            {
+                "type": "number",
+                "identifier": "out11",
+                "init_value": "0",
+                "label": "Wind speed"
+            },
+            {
+                "type": "number",
+                "identifier": "out12",
+                "init_value": "0",
+                "label": "Wind gust"
+            },
+            {
+                "type": "number",
+                "identifier": "out13",
+                "init_value": "0",
+                "label": "Max daily gust"
+            },
+            {
+                "type": "number",
+                "identifier": "out14",
+                "init_value": "0",
+                "label": "Current rain rate"
+            },
+            {
+                "type": "number",
+                "identifier": "out15",
+                "init_value": "0",
+                "label": "Event rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out16",
+                "init_value": "0",
+                "label": "Hourly rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out17",
+                "init_value": "0",
+                "label": "Daily rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out18",
+                "init_value": "0",
+                "label": "Weekly rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out19",
+                "init_value": "0",
+                "label": "Monthly rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out20",
+                "init_value": "0",
+                "label": "Yearly rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out21",
+                "init_value": "0",
+                "label": "Total rain"
+            },
+            {
+                "type": "number",
+                "identifier": "out22",
+                "init_value": "0",
+                "label": "Sun"
+            },
+            {
+                "type": "number",
+                "identifier": "out23",
+                "init_value": "0",
+                "label": "UV force"
+            },
+            {
+                "type": "number",
+                "identifier": "out24",
+                "init_value": "0",
+                "label": "Vapour Pressure Deficit"
+            },
+            {
+                "type": "number",
+                "identifier": "out25",
+                "init_value": "0",
+                "label": "Battery"
+            },
+            {
+                "type": "string",
+                "identifier": "out26",
+                "init_value": "",
+                "label": "Frequency"
+            },
+            {
+                "type": "string",
+                "identifier": "out27",
+                "init_value": "",
+                "label": "Model"
+            },
+            {
+                "type": "string",
+                "identifier": "out28",
+                "init_value": "",
+                "label": "Error"
+            }
+        ],
+        "stores": [],
+        "timers": [],
+        "scripts": [
+            {
+                "filename": "tests/test_14649_weatherstation_server.py"
+            }
+        ],
+        "translations": []
+    }
+}
