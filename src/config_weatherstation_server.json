@@ -218,7 +218,7 @@
         "timers": [],
         "scripts": [
             {
-                "filename": "tests/test_14649_weatherstation_server.py"
+                "filename": "hsl3_14649_weatherstation_server.py"
             }
         ],
         "translations": []
