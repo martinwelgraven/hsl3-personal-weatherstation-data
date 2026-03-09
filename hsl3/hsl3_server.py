@@ -2,7 +2,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import threading
 
 
-def simple_http_server(callback=None, port=8080):
+def simple_http_server(callback = None, port: int=8080):
     """ Run a simple HTTP server.
         - callback: function to be called with POST data (as str) on POST.
         - port: which port to listen on (default 8080).

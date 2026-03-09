@@ -1,0 +1,71 @@
+5000|"IOT device data\Weatherdata Ecowitt"|0|6|"Data (x-www-form-urlencoded)"|"Temperature (1-Celcius, 0-Fahrenheit)"|"Speed (1-km/h, 0-mph)"|"Pressure (1-bar, 0-hPa)"|"Length (1-mm, 0-inch)"|"Length (2-mbar, 1-hPa, 0-kPa)"|28|"PASSKEY"|"Stationtype"|"Date UTC"|"Indoor temperature"|"Indoor humidity"|"Relative pressure"|"Absolute pressure"|"Temperature"|"Humidity"|"Wind direction"|"Wind speed"|"Wind gust"|"Max daily gust"|"Current rain rate"|"Event rain"|"Hourly rain"|"Daily rain"|"Weekly rain"|"Monthly rain"|"Yearly rain"|"Total rain"|"Sun"|"UV force"|"Vapour Pressure Deficit"|"Battery"|"Frequency"|"Model"|"Error"|"0.1.0"|0|0
+5001|6|28|0|0|1|0|"HSL3.main.weatherdata_ecowitt"
+5002|1|""|1
+5002|2|1|0
+5002|3|1|0
+5002|4|1|0
+5002|5|1|0
+5002|6|1|0
+5004|1|""|0|1|1
+5004|2|""|0|1|1
+5004|3|""|0|1|1
+5004|4|0.0|0|1|0
+5004|5|0|0|1|0
+5004|6|0.0|0|1|0
+5004|7|0.0|0|1|0
+5004|8|0.0|0|1|0
+5004|9|0|0|1|0
+5004|10|""|0|1|1
+5004|11|0|0|1|0
+5004|12|0|0|1|0
+5004|13|0|0|1|0
+5004|14|0|0|1|0
+5004|15|0|0|1|0
+5004|16|0|0|1|0
+5004|17|0|0|1|0
+5004|18|0|0|1|0
+5004|19|0|0|1|0
+5004|20|0|0|1|0
+5004|21|0|0|1|0
+5004|22|0|0|1|0
+5004|23|0|0|1|0
+5004|24|0.0|0|1|0
+5004|25|0|0|1|0
+5004|26|""|0|1|1
+5004|27|""|0|1|1
+5004|28|""|0|1|1
+5012|0|""|"HSL3.set_input_name(1, 'in01')"|""|0|0|0|0
+5012|0|""|"HSL3.set_input_name(2, 'in02')"|""|0|0|0|0
+5012|0|""|"HSL3.set_input_name(3, 'in03')"|""|0|0|0|0
+5012|0|""|"HSL3.set_input_name(4, 'in04')"|""|0|0|0|0
+5012|0|""|"HSL3.set_input_name(5, 'in05')"|""|0|0|0|0
+5012|0|""|"HSL3.set_input_name(6, 'in06')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(1, 'out01')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(2, 'out02')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(3, 'out03')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(4, 'out04')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(5, 'out05')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(6, 'out06')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(7, 'out07')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(8, 'out08')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(9, 'out09')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(10, 'out10')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(11, 'out11')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(12, 'out12')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(13, 'out13')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(14, 'out14')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(15, 'out15')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(16, 'out16')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(17, 'out17')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(18, 'out18')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(19, 'out19')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(20, 'out20')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(21, 'out21')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(22, 'out22')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(23, 'out23')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(24, 'out24')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(25, 'out25')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(26, 'out26')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(27, 'out27')"|""|0|0|0|0
+5012|0|""|"HSL3.set_output_name(28, 'out28')"|""|0|0|0|0
+5012|0|""|"HSL3.load('hsl3_14649_weatherdata_ecowitt', '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')"|""|0|0|0|0

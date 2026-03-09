@@ -1,10 +1,10 @@
 {
     "module": {
-        "category": "weather",
-        "context": "weatherstation_server",
+        "category": "IOT device data",
+        "context": "weatherdata_ecowitt",
         "id": "14649",
-        "name": "Weatherstation Server",
-        "hsl_filename": "14649_weatherstation_server.hsl",
+        "name": "Weatherdata Ecowitt",
+        "hsl_filename": "14649_weatherdata_ecowitt.hsl",
         "version": "0.1.0",
         "inputs": [
             {
@@ -218,7 +218,7 @@
         "timers": [],
         "scripts": [
             {
-                "filename": "hsl3_14649_weatherstation_server.py"
+                "filename": "hsl3_14649_weatherdata_ecowitt.py"
             }
         ],
         "translations": []

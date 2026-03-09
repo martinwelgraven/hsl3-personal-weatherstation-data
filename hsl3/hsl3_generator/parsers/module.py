@@ -127,7 +127,6 @@ class ModuleParser:
             self.module_code.append(output_definition)
     
     def set_module_input_names(self, inputs):
-        print(len(inputs))
         for input in inputs:
             input_name = f"\'{input.identifier}\'" if len(input.identifier) > 0 else f"\'{input.label}\'"
 
@@ -259,7 +258,6 @@ class ModuleParser:
                 data = gzip.compress(src.encode(), mtime=0)
                 data = data[:9] + b'\xff' + data[10:]
                 encoded_src = base64.b64encode(data)
-                print(encoded_src.decode())
                 # Definition of a formula block that loads the script content into the module. The script content is compressed and encoded in base64 to ensure it can be safely included in the HSL3 code.
                 script_definition = f'5012'     # record type
                 script_definition += f'|0'      # End after execution

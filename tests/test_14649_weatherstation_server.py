@@ -18,7 +18,7 @@ if ROOT_DIR not in sys.path:
 from hsl3.hsl3 import HSL3
 from hsl3.hsl3_wrapper import Hsl3WrapperNode
 from hsl3.hsl3_server import simple_http_server
-from src.hsl3_14649_weatherstation_server import LogicModule
+from hsl3_14649_weatherdata_ecowitt import LogicModule
 
 logic_node_name = "weatherstation_server"
 
