@@ -83,7 +83,7 @@ class ModuleParser:
             self.module_code.append(translation_definition)
 
     def set_module_definition(self, module_config: ConfigModule):
-        module_definition =  f'5001|'                          # record type
+        module_definition =  f'5001'                          # record type
         module_definition += f'|{len(module_config.inputs)}'   # Number of inputs
         module_definition += f'|{len(module_config.outputs)}'  # Number of outputs
         module_definition += f'|{len(module_config.timers)}'   # Number of timers
@@ -127,22 +127,25 @@ class ModuleParser:
             self.module_code.append(output_definition)
     
     def set_module_input_names(self, inputs):
+        print(len(inputs))
         for input in inputs:
-            input_name = f'\"{input.identifier}\"' if len(input.identifier) > 0 else f'\"{input.label}\"'
+            input_name = f"\'{input.identifier}\'" if len(input.identifier) > 0 else f"\'{input.label}\'"
 
             input_definition = f'5012'                          # record type
             input_definition += f'|0'                           # End after execution
             input_definition += f'|\"\"'                        # Condition
-            input_definition += f'|\"HSL3.set_input_name({input.index}, { input_name }\')\"'  # Action
+            input_definition += f'|\"HSL3.set_input_name({input.index}, { input_name })\"'  # Action
             input_definition += f'|\"\"'                        # Time formula
             input_definition += f'|0'                           # Pin - Output
             input_definition += f'|0'                           # Pin - Time memory
             input_definition += f'|0'                           # Pin - memory variable
             input_definition += f'|0'                           # Pin - Negated output
+
+            self.module_code.append(input_definition)
     
     def set_module_store_names(self, stores):
         for store in stores:
-            store_name = f'\"{store.identifier}\"' if len(store.identifier) > 0 else f'\"{store.label}\"'
+            store_name = f"\'{store.identifier}\'" if len(store.identifier) > 0 else f"\'{store.label}\'"
 
             store_definition = f'5012'                          # record type
             store_definition += f'|0'                           # End after execution
@@ -158,7 +161,7 @@ class ModuleParser:
     
     def set_module_timer_names(self, timers):
         for timer in timers:
-            timer_name = f'\"{timer.identifier}\"' if len(str(timer.identifier)) > 0 else f'\"{timer.label}\"'
+            timer_name = f"\'{timer.identifier}\'" if len(str(timer.identifier)) > 0 else f"\'{timer.label}\'"
             timer_definition = f'5012'                          # record type
             timer_definition += f'|0'                           # End after execution
             timer_definition += f'|\"\"'                        # Condition
@@ -173,7 +176,7 @@ class ModuleParser:
 
     def set_module_output_names(self, outputs):
         for output in outputs:
-            output_name = f'\"{output.identifier}\"' if len(str(output.identifier)) > 0 else f'\"{output.label}\"'
+            output_name = f"\'{output.identifier}\'" if len(str(output.identifier)) > 0 else f"\'{output.label}\'"
             output_definition = f'5012'                          # record type
             output_definition += f'|0'                           # End after execution
             output_definition += f'|\"\"'                        # Condition
@@ -252,8 +255,11 @@ class ModuleParser:
         for script_file in sorted_files:
             with open(script_file, 'r', encoding='utf-8') as script_src:
                 src = script_src.read()
-                encoded_src = base64.b64encode(gzip.compress(src.encode(), mtime=0))
-
+               
+                data = gzip.compress(src.encode(), mtime=0)
+                data = data[:9] + b'\xff' + data[10:]
+                encoded_src = base64.b64encode(data)
+                print(encoded_src.decode())
                 # Definition of a formula block that loads the script content into the module. The script content is compressed and encoded in base64 to ensure it can be safely included in the HSL3 code.
                 script_definition = f'5012'     # record type
                 script_definition += f'|0'      # End after execution
