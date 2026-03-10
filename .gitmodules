@@ -1,0 +1,3 @@
+[submodule "hsl4"]
+	path = hsl4
+	url = https://github.com/martinwelgraven/girahs-hsl3
