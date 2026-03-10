@@ -1,3 +1,6 @@
 [submodule "hsl4"]
 	path = hsl4
 	url = https://github.com/martinwelgraven/girahs-hsl3
+[submodule "gira-hsl3"]
+	path = gira-hsl3
+	url = https://github.com/martinwelgraven/girahs-hsl3
