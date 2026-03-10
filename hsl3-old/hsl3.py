@@ -48,10 +48,12 @@ class HSL3:
         ● If, for the value parameter, None or a "string" type value is transferred, an exception  of the ValueError type is triggered.        
         """
         self.outputs[index_or_key] = value
-        if isinstance(value, (bytes, bytearray)):
-            display = value.decode("iso-8859-15")
+        if isinstance(value, str):
+            raise ValueError("String values are not allowed. Please encode to bytes before setting the output. Key: {index_or_key}, Value: {value}")
+        elif isinstance(value, (bytes, bytearray)):
+            display = value.decode("ascii")
         else:
-            display = value
+            display=value
         print(f"Output set: {index_or_key} = {display}")
     
     def set_store(self, index_or_key, value):

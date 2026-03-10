@@ -4,14 +4,10 @@ from .hsl3_slots import Hsl3Slots
 
 
 class Hsl3WrapperNode:
-    module = None
-
-    inputs: Hsl3Slots
-    outputs: Hsl3Slots
-    stores: Hsl3Slots
 
     def __init__(self, root_dir: str, logic_node_name: str, node: object) -> None:
         self.node = node
+        self.module = None
 
         source_file = f'{root_dir}/src/config_{logic_node_name}.json'
     
@@ -23,7 +19,7 @@ class Hsl3WrapperNode:
         self._set_inputs()
         self._set_outputs()
         self._set_stores()
-        self.node.on_init(self.inputs, self.stores)
+        self.node.on_init(self.inputs, self.stores) # type: ignore
     
 
     def open_config(self, source_file):
@@ -43,16 +39,22 @@ class Hsl3WrapperNode:
         else:
             raise KeyError(f"Key {key} not found.")
         
-        self.node.on_calc(self.inputs)
+        self.node.on_calc(self.inputs) # type: ignore
 
     def _set_inputs(self):
-        for input in self.module.inputs:
+        for input in self.module.inputs: # type: ignore
+            if(isinstance(input.init_value, str)):
+                input.init_value = input.init_value.encode("ascii")
             self.inputs.set(input)
 
     def _set_outputs(self):
-        for output in self.module.outputs:
+        for output in self.module.outputs: # type: ignore
+            if(isinstance(output.init_value, str)):
+                output.init_value = output.init_value.encode("ascii")
             self.outputs.set(output)
 
     def _set_stores(self):
-        for store in self.module.stores:
+        for store in self.module.stores: # type: ignore
+            if(isinstance(store.init_value, str)):
+                store.init_value = store.init_value.encode("ascii")
             self.stores.set(store)

@@ -1,3 +1,4 @@
+from typing import Union
 from hsl3.hsl3_generator.configs.input import ConfigInput
 from hsl3.hsl3_generator.configs.output import ConfigOutput
 from hsl3.hsl3_generator.configs.store import ConfigStore
@@ -29,11 +30,11 @@ class Hsl3Slots:
     def __init__(self, name: str):
         self.name = name
         self._slots_by_key: dict[str, Hsl3Slot] = {}
-        self._slots_by_id: list[Hsl3Slot | None] = [None]  # index 0 unused
+        self._slots_by_id: list[Union[Hsl3Slot, None]] = [None]  # index 0 unused
         self._meta_by_key: dict[str, object] = {}          # optional: keep ConfigInput/Output/...
 
 
-    def set(self, init_slot: ConfigInput | ConfigOutput | ConfigStore | ConfigTimer):
+    def set(self, init_slot: Union[ConfigInput, ConfigOutput, ConfigStore, ConfigTimer]):
         """
         Sets an object of type Hsl3Slot
         """
@@ -44,21 +45,22 @@ class Hsl3Slots:
             self._slots_by_id.append(None)
         self._slots_by_id[idx] = slot
 
-        data_type = init_slot.type.name
-        if data_type == "NUMBER":
-            if init_slot.init_value.find(".")>-1:
-                data_type = "FLOAT"
-            else:
-                data_type = "INT"
+        if isinstance(init_slot, (ConfigInput, ConfigOutput, ConfigStore)):
+            data_type = init_slot.type.name
+            if data_type == "NUMBER":
+                if isinstance(init_slot.init_value, bytes) and init_slot.init_value.find(b".")>-1:
+                    data_type = "FLOAT"
+                else:
+                    data_type = "INT"
 
-        slot.data_type = data_type.lower();
-        slot.value = init_slot.init_value
-
+            slot.data_type = data_type.lower()
+            slot.value = init_slot.init_value
+        
         if init_slot.identifier:
-            self._slots_by_key[str(init_slot.identifier)] = slot
-            self._meta_by_key[str(init_slot.identifier)] = init_slot
+            self._slots_by_key[str(init_slot.identifier.upper())] = slot
+            self._meta_by_key[str(init_slot.identifier.upper())] = init_slot
 
-    def get(self, index_or_key: int | str) -> Hsl3Slot:
+    def get(self, index_or_key: Union[int, str]) -> Hsl3Slot:
         """Parameters
         ● index_or_key
         
@@ -79,12 +81,19 @@ class Hsl3Slots:
         except KeyError:
             raise KeyError(f"Key {key} not found.")
 
-    def __getitem__(self, index_or_key: int | str) -> Hsl3Slot:
+    def __getitem__(self, index_or_key: Union[int, str]) -> Hsl3Slot:
         return self.get(index_or_key)
     
     def keys(self):        
         """Returns a list of all existing keys."""
-        return self._slots_by_key.keys()
+        out = {}
+        for i in range(1, len(self._slots_by_id)):
+            if self._slots_by_id[i] is not None:    
+                out[i] = self._slots_by_id[i]
+        for key in self._slots_by_key.keys():
+            out[key] = self._slots_by_key[key]
+
+        return out.keys()
     
     def changed(self, index_or_key):
         """Parameters

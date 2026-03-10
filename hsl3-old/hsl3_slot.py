@@ -8,9 +8,8 @@ class Hsl3Slot:
 
     @property
     def changed(self):
-        has_changed =  self._changed
-        if(has_changed):
-            self._changed = False
+        has_changed = self._changed
+        self._changed = False
             
         return has_changed
 
@@ -28,10 +27,5 @@ class Hsl3Slot:
 
     @value.setter
     def value(self, new_value):
-        if self._data_type == "int":
-            new_value = int(new_value) if new_value is not None else 0
-        elif self._data_type == "float":
-            new_value = float(new_value) if new_value is not None else 0.0
-
         self._changed = (new_value != self._value)
         self._value = new_value
