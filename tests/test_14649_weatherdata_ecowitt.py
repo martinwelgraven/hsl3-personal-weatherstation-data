@@ -20,6 +20,8 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 if ROOT_DIR+'\\src' not in sys.path:
     sys.path.insert(0, ROOT_DIR+'\\src')
+if ROOT_DIR+'\\hsl3\\src\\hsl3' not in sys.path:
+    sys.path.insert(0, ROOT_DIR+'\\hsl3\\src\\hsl3')
 
 from hsl3.hsl3 import HSL3
 from hsl3.hsl3_wrapper import Hsl3WrapperNode
