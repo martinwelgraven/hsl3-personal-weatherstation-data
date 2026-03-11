@@ -49,7 +49,9 @@ def main():
     hsl3 = HSL3("14649_weatherdata_ecowitt")
     logic_module = LogicModule(hsl3)
     wrapper_node = Hsl3WrapperNode(ROOT_DIR, logic_node_name, logic_module)
-    
+    if (wrapper_node.module is not None):
+        hsl3.config = wrapper_node.module
+
     wrapper_node.set("IN02_TEMP_UNIT", 1) # Temperature Celcius
     wrapper_node.set("IN03_SPEED_UNIT", 1) # Speed to km/h
     wrapper_node.set("IN04_PRESSURE_UNIT", 1) # Pressure to bar

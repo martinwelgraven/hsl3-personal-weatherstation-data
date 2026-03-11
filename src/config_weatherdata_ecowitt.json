@@ -149,7 +149,7 @@
             },
             {
                 "type": "number",
-                "identifier": "OUT18RAINWEEK",
+                "identifier": "OUT18_RAINWEEK",
                 "init_value": 0,
                 "label": "Weekly rain"
             },
