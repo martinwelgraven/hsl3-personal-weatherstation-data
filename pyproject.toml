@@ -1,0 +1,17 @@
+[project]
+name = "hsl3-personal-weatherstation-data"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Martin", email = "50510526+martinwelgraven@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+hsl3-personal-weatherstation-data = "hsl3_personal_weatherstation_data:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
