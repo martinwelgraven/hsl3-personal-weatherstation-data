@@ -1,47 +1,54 @@
 {
     "module": {
         "category": "IOT device data",
-        "context": "weatherdata_ecowitt",
+        "context": "personal_weatherstation_data",
         "id": "14649",
-        "name": "Weatherdata Ecowitt",
-        "hsl_filename": "14649_weatherdata_ecowitt.hsl",
+        "name": "Personal Weatherstation Data",
+        "hsl_filename": "14649_personal_weatherstation_data.hsl",
         "version": "0.1.0",
         "inputs": [
             {
                 "type": "string",
                 "identifier": "IN01_DATA",
                 "init_value": "",
-                "label": "Data (x-www-form-urlencoded)"
+                "label": "Data (x-www-form-urlencoded)",
+                "description": "Weather data received from the Ecowitt station as URL-encoded form data."
+                
             },
             {
                 "type": "number",
                 "identifier": "IN02_TEMP_UNIT",
                 "init_value": 1,
-                "label": "Temperature (1-Celcius, 0-Fahrenheit)"
+                "label": "Temperature (1-Celcius, 0-Fahrenheit)",
+                "description": "Select the temperature unit used by the station: 1 for Celsius or 0 for Fahrenheit."
             },
             {
                 "type": "number",
                 "identifier": "IN03_SPEED_UNIT",
                 "init_value": 1,
-                "label": "Windspeed (1-km/h, 0-mph)"
+                "label": "Windspeed (1-km/h, 0-mph)",
+                "description": "Select the wind speed unit used by the station: 1 for km/h or 0 for mph."
             },
             {
                 "type": "number",
                 "identifier": "IN04_PRESSURE_UNIT",
                 "init_value": 1,
-                "label": "Pressure (1-bar, 0-hPa)"
+                "label": "Pressure (1-bar, 0-hPa)",
+                "description": "Select the pressure unit used by the station: 1 for bar or 0 for hPa."
             },
             {
                 "type": "number",
                 "identifier": "IN05_DEPTH_UNIT",
                 "init_value": 1,
-                "label": "Rainfall (1-mm, 0-inch)"
+                "label": "Rainfall (1-mm, 0-inch)",
+                "description": "Select the rainfall unit used by the station: 1 for millimetres or 0 for inches."
             },
             {
                 "type": "number",
                 "identifier": "IN06_VPD_UNIT",
                 "init_value": 1,
-                "label": "Vapor Pressure Deficit (2-mbar, 1-hPa, 0-kPa)"
+                "label": "Vapor Pressure Deficit (2-mbar, 1-hPa, 0-kPa)",
+                "description": "Select the VPD unit used by the station: 2 for mbar, 1 for hPa, or 0 for kPa."
             }
         ],
         "outputs": [
@@ -49,176 +56,204 @@
                 "type": "string",
                 "identifier": "OUT01_KEY",
                 "init_value": "",
-                "label": "PASSKEY"
+                "label": "PASSKEY",
+                "description": "Passkey identifying the Ecowitt station or upload source."
             },
             {
                 "type": "string",
                 "identifier": "OUT02_STATION",
                 "init_value": "",
-                "label": "Stationtype"
+                "label": "Stationtype",
+                "description": "Reported type of weather station."
             },
             {
                 "type": "string",
                 "identifier": "OUT03_DATE",
                 "init_value": "",
-                "label": "Date UTC"
+                "label": "Date UTC",
+                "description": "Timestamp of the weather data in UTC."
             },
             {
                 "type": "number",
                 "identifier": "OUT04_TEMP_IN",
                 "init_value": 0.0,
-                "label": "Indoor temperature"
+                "label": "Indoor temperature",
+                "description": "Indoor temperature in the unit selected by IN02_TEMP_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT05_HUMID_IN",
                 "init_value": 0,
-                "label": "Indoor humidity"
+                "label": "Indoor humidity",
+                "description": "Indoor relative humidity, typically expressed as a percentage."
             },
             {
                 "type": "number",
                 "identifier": "OUT06_REL_PRESSURE",
                 "init_value": 0.0,
-                "label": "Relative pressure"
+                "label": "Relative pressure",
+                "description": "Relative atmospheric pressure in the unit selected by IN04_PRESSURE_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT07_ABS_PRESSURE",
                 "init_value": 0.0,
-                "label": "Absolute pressure"
+                "label": "Absolute pressure",
+                "description": "Absolute atmospheric pressure in the unit selected by IN04_PRESSURE_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT08_TEMP_OUT",
                 "init_value": 0.0,
-                "label": "Temperature"
+                "label": "Temperature",
+                "description": "Outdoor temperature in the unit selected by IN02_TEMP_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT09_HUMID_OUT",
                 "init_value": 0,
-                "label": "Humidity"
+                "label": "Humidity",
+                "description": "Outdoor relative humidity, typically expressed as a percentage."
             },
             {
                 "type": "string",
                 "identifier": "OUT10_WINDDIR",
                 "init_value": "",
-                "label": "Wind direction"
+                "label": "Wind direction",
+                "description": "Reported wind direction."
             },
             {
                 "type": "number",
                 "identifier": "OUT11_WINDSPEED",
                 "init_value": 0,
-                "label": "Wind speed"
+                "label": "Wind speed",
+                "description": "Current wind speed in the unit selected by IN03_SPEED_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT12_WINDGUST",
                 "init_value": 0,
-                "label": "Wind gust"
+                "label": "Wind gust",
+                "description": "Current wind gust speed in the unit selected by IN03_SPEED_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT13_MAXGUST",
                 "init_value": 0,
-                "label": "Max daily gust"
+                "label": "Max daily gust",
+                "description": "Maximum wind gust recorded today in the unit selected by IN03_SPEED_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT14_RAIN",
                 "init_value": 0,
-                "label": "Current rain rate"
+                "label": "Current rain rate",
+                "description": "Current rainfall rate in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT15_RAINEVENT",
                 "init_value": 0,
-                "label": "Event rain"
+                "label": "Event rain",
+                "description": "Rainfall accumulated during the current rain event in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT16_RAINHOUR",
                 "init_value": 0,
-                "label": "Hourly rain"
+                "label": "Hourly rain",
+                "description": "Rainfall accumulated over the current hour in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT17_RAINDAY",
                 "init_value": 0,
-                "label": "Daily rain"
+                "label": "Daily rain",
+                "description": "Rainfall accumulated today in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT18_RAINWEEK",
                 "init_value": 0,
-                "label": "Weekly rain"
+                "label": "Weekly rain",
+                "description": "Rainfall accumulated this week in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT19_RAINMONTH",
                 "init_value": 0,
-                "label": "Monthly rain"
+                "label": "Monthly rain",
+                "description": "Rainfall accumulated this month in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT20_RAINYEAR",
                 "init_value": 0,
-                "label": "Yearly rain"
+                "label": "Yearly rain",
+                "description": "Rainfall accumulated this year in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT21_RAINTOTAL",
                 "init_value": 0,
-                "label": "Total rain"
+                "label": "Total rain",
+                "description": "Total accumulated rainfall in the unit selected by IN05_DEPTH_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT22_SUN",
                 "init_value": 0,
-                "label": "Sun"
+                "label": "Sun",
+                "description": "Reported solar radiation value."
             },
             {
                 "type": "number",
                 "identifier": "OUT23_UV",
                 "init_value": 0,
-                "label": "UV force"
+                "label": "UV force",
+                "description": "Reported ultraviolet index."
             },
             {
                 "type": "number",
                 "identifier": "OUT24_VPD",
                 "init_value": 0.0,
-                "label": "Vapour Pressure Deficit"
+                "label": "Vapour Pressure Deficit",
+                "description": "Vapour pressure deficit in the unit selected by IN06_VPD_UNIT."
             },
             {
                 "type": "number",
                 "identifier": "OUT25_BATT",
                 "init_value": 0,
-                "label": "Battery"
+                "label": "Battery",
+                "description": "Reported battery status or level."
             },
             {
                 "type": "string",
                 "identifier": "OUT26_FREQ",
                 "init_value": "",
-                "label": "Frequency"
+                "label": "Frequency",
+                "description": "Reported radio frequency or frequency band."
             },
             {
                 "type": "string",
                 "identifier": "OUT27_MODEL",
                 "init_value": "",
-                "label": "Model"
+                "label": "Model",
+                "description": "Reported weather station model."
             },
             {
                 "type": "string",
                 "identifier": "OUT28_ERROR",
                 "init_value": "",
-                "label": "Error"
+                "label": "Error",
+                "description": "Error information reported with the received weather data."
             }
         ],
         "stores": [],
         "timers": [],
         "scripts": [
             {
-                "filename": "hsl3_14649_weatherdata_ecowitt.py"
+                "filename": "hsl3_14649_personal_weatherstation_data.py"
             }
         ],
         "translations": []
