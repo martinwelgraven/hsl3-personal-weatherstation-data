@@ -1,0 +1,261 @@
+module:
+  id: '14649'
+  name: Personal Weatherstation Data
+  title: 14649 - Personal Weatherstation Data
+  version: 0.1.0
+  version_date: '2026-11-21'
+  category: IOT device data
+  context: personal_weatherstation_data
+  description: ''
+  note: ''
+  warning: ''
+  inputs:
+  - label: Data (x-www-form-urlencoded)
+    init_value: ''
+    type: STRING
+    identifier: IN01_DATA
+    description: Weather data received from the Ecowitt station as URL-encoded form
+      data.
+    index: 1
+  - label: Temperature (1-Celcius, 0-Fahrenheit)
+    init_value: 1
+    type: NUMBER
+    identifier: IN02_TEMP_UNIT
+    description: 'Select the temperature unit used by the station: 1 for Celsius or
+      0 for Fahrenheit.'
+    index: 2
+  - label: Windspeed (1-km/h, 0-mph)
+    init_value: 1
+    type: NUMBER
+    identifier: IN03_SPEED_UNIT
+    description: 'Select the wind speed unit used by the station: 1 for km/h or 0
+      for mph.'
+    index: 3
+  - label: Pressure (1-bar, 0-hPa)
+    init_value: 1
+    type: NUMBER
+    identifier: IN04_PRESSURE_UNIT
+    description: 'Select the pressure unit used by the station: 1 for bar or 0 for
+      hPa.'
+    index: 4
+  - label: Rainfall (1-mm, 0-inch)
+    init_value: 1
+    type: NUMBER
+    identifier: IN05_DEPTH_UNIT
+    description: 'Select the rainfall unit used by the station: 1 for millimetres
+      or 0 for inches.'
+    index: 5
+  - label: Vapor Pressure Deficit (2-mbar, 1-hPa, 0-kPa)
+    init_value: 1
+    type: NUMBER
+    identifier: IN06_VPD_UNIT
+    description: 'Select the VPD unit used by the station: 2 for mbar, 1 for hPa,
+      or 0 for kPa.'
+    index: 6
+  outputs:
+  - label: PASSKEY
+    init_value: ''
+    type: STRING
+    identifier: OUT01_KEY
+    sbc: false
+    description: Passkey identifying the Ecowitt station or upload source.
+    index: 1
+  - label: Stationtype
+    init_value: ''
+    type: STRING
+    identifier: OUT02_STATION
+    sbc: false
+    description: Reported type of weather station.
+    index: 2
+  - label: Date UTC
+    init_value: ''
+    type: STRING
+    identifier: OUT03_DATE
+    sbc: false
+    description: Timestamp of the weather data in UTC.
+    index: 3
+  - label: Indoor temperature
+    init_value: 0.0
+    type: NUMBER
+    identifier: OUT04_TEMP_IN
+    sbc: false
+    description: Indoor temperature in the unit selected by IN02_TEMP_UNIT.
+    index: 4
+  - label: Indoor humidity
+    init_value: 0
+    type: NUMBER
+    identifier: OUT05_HUMID_IN
+    sbc: false
+    description: Indoor relative humidity, typically expressed as a percentage.
+    index: 5
+  - label: Relative pressure
+    init_value: 0.0
+    type: NUMBER
+    identifier: OUT06_REL_PRESSURE
+    sbc: false
+    description: Relative atmospheric pressure in the unit selected by IN04_PRESSURE_UNIT.
+    index: 6
+  - label: Absolute pressure
+    init_value: 0.0
+    type: NUMBER
+    identifier: OUT07_ABS_PRESSURE
+    sbc: false
+    description: Absolute atmospheric pressure in the unit selected by IN04_PRESSURE_UNIT.
+    index: 7
+  - label: Temperature
+    init_value: 0.0
+    type: NUMBER
+    identifier: OUT08_TEMP_OUT
+    sbc: false
+    description: Outdoor temperature in the unit selected by IN02_TEMP_UNIT.
+    index: 8
+  - label: Humidity
+    init_value: 0
+    type: NUMBER
+    identifier: OUT09_HUMID_OUT
+    sbc: false
+    description: Outdoor relative humidity, typically expressed as a percentage.
+    index: 9
+  - label: Wind direction
+    init_value: ''
+    type: STRING
+    identifier: OUT10_WINDDIR
+    sbc: false
+    description: Reported wind direction.
+    index: 10
+  - label: Wind speed
+    init_value: 0
+    type: NUMBER
+    identifier: OUT11_WINDSPEED
+    sbc: false
+    description: Current wind speed in the unit selected by IN03_SPEED_UNIT.
+    index: 11
+  - label: Wind gust
+    init_value: 0
+    type: NUMBER
+    identifier: OUT12_WINDGUST
+    sbc: false
+    description: Current wind gust speed in the unit selected by IN03_SPEED_UNIT.
+    index: 12
+  - label: Max daily gust
+    init_value: 0
+    type: NUMBER
+    identifier: OUT13_MAXGUST
+    sbc: false
+    description: Maximum wind gust recorded today in the unit selected by IN03_SPEED_UNIT.
+    index: 13
+  - label: Current rain rate
+    init_value: 0
+    type: NUMBER
+    identifier: OUT14_RAIN
+    sbc: false
+    description: Current rainfall rate in the unit selected by IN05_DEPTH_UNIT.
+    index: 14
+  - label: Event rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT15_RAINEVENT
+    sbc: false
+    description: Rainfall accumulated during the current rain event in the unit selected
+      by IN05_DEPTH_UNIT.
+    index: 15
+  - label: Hourly rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT16_RAINHOUR
+    sbc: false
+    description: Rainfall accumulated over the current hour in the unit selected by
+      IN05_DEPTH_UNIT.
+    index: 16
+  - label: Daily rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT17_RAINDAY
+    sbc: false
+    description: Rainfall accumulated today in the unit selected by IN05_DEPTH_UNIT.
+    index: 17
+  - label: Weekly rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT18_RAINWEEK
+    sbc: false
+    description: Rainfall accumulated this week in the unit selected by IN05_DEPTH_UNIT.
+    index: 18
+  - label: Monthly rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT19_RAINMONTH
+    sbc: false
+    description: Rainfall accumulated this month in the unit selected by IN05_DEPTH_UNIT.
+    index: 19
+  - label: Yearly rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT20_RAINYEAR
+    sbc: false
+    description: Rainfall accumulated this year in the unit selected by IN05_DEPTH_UNIT.
+    index: 20
+  - label: Total rain
+    init_value: 0
+    type: NUMBER
+    identifier: OUT21_RAINTOTAL
+    sbc: false
+    description: Total accumulated rainfall in the unit selected by IN05_DEPTH_UNIT.
+    index: 21
+  - label: Sun
+    init_value: 0
+    type: NUMBER
+    identifier: OUT22_SUN
+    sbc: false
+    description: Reported solar radiation value.
+    index: 22
+  - label: UV force
+    init_value: 0
+    type: NUMBER
+    identifier: OUT23_UV
+    sbc: false
+    description: Reported ultraviolet index.
+    index: 23
+  - label: Vapour Pressure Deficit
+    init_value: 0.0
+    type: NUMBER
+    identifier: OUT24_VPD
+    sbc: false
+    description: Vapour pressure deficit in the unit selected by IN06_VPD_UNIT.
+    index: 24
+  - label: Battery
+    init_value: 0
+    type: NUMBER
+    identifier: OUT25_BATT
+    sbc: false
+    description: Reported battery status or level.
+    index: 25
+  - label: Frequency
+    init_value: ''
+    type: STRING
+    identifier: OUT26_FREQ
+    sbc: false
+    description: Reported radio frequency or frequency band.
+    index: 26
+  - label: Model
+    init_value: ''
+    type: STRING
+    identifier: OUT27_MODEL
+    sbc: false
+    description: Reported weather station model.
+    index: 27
+  - label: Error
+    init_value: ''
+    type: STRING
+    identifier: OUT28_ERROR
+    sbc: false
+    description: Error information reported with the received weather data.
+    index: 28
+  scripts:
+  - filename: hsl3_14649_personal_weatherstation_data.py
+    folder: ''
+    index: 1
+  stores: []
+  timers: []
+  translations: []
+  hsl_filename: 14649_personal_weatherstation_data.hsl
