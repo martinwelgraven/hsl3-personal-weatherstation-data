@@ -2,55 +2,57 @@ module:
   id: '14649'
   name: Personal Weatherstation Data
   title: 14649 - Personal Weatherstation Data
-  version: 0.1.0
+  version: 0.2.0
   version_date: '2026-11-21'
   category: IOT device data
   context: personal_weatherstation_data
-  description: ''
-  note: ''
-  warning: ''
+  description: |-
+    Parses weather data received from a personal weather station.
+    Measurements include temperature, humidity, pressure, rainfall, and vapor pressure deficit.
+    Unit output is based on the corresponding input fields.
+
+    Currently Ecowitt protocol is supported.
+    Others may be added in the future.
+  note: |-
+    0.1.0 | 18-03-2026 | First version as a hsl3 modules
+    0.2.0 | 21-11-2026 | Updated the framework and help file
+  warning: ""
   inputs:
   - label: Data (x-www-form-urlencoded)
     init_value: ''
     type: STRING
     identifier: IN01_DATA
-    description: Weather data received from the Ecowitt station as URL-encoded form
-      data.
+    description: Weather data received from the Ecowitt station as URL-encoded form data.
     index: 1
   - label: Temperature (1-Celcius, 0-Fahrenheit)
     init_value: 1
     type: NUMBER
     identifier: IN02_TEMP_UNIT
-    description: 'Select the temperature unit used by the station: 1 for Celsius or
-      0 for Fahrenheit.'
+    description: 'Select the temperature unit used by the station: 1 for Celsius or 0 for Fahrenheit.'
     index: 2
   - label: Windspeed (1-km/h, 0-mph)
     init_value: 1
     type: NUMBER
     identifier: IN03_SPEED_UNIT
-    description: 'Select the wind speed unit used by the station: 1 for km/h or 0
-      for mph.'
+    description: 'Select the wind speed unit used by the station: 1 for km/h or 0 for mph.'
     index: 3
   - label: Pressure (1-bar, 0-hPa)
     init_value: 1
     type: NUMBER
     identifier: IN04_PRESSURE_UNIT
-    description: 'Select the pressure unit used by the station: 1 for bar or 0 for
-      hPa.'
+    description: 'Select the pressure unit used by the station: 1 for bar or 0 for hPa.'
     index: 4
   - label: Rainfall (1-mm, 0-inch)
     init_value: 1
     type: NUMBER
     identifier: IN05_DEPTH_UNIT
-    description: 'Select the rainfall unit used by the station: 1 for millimetres
-      or 0 for inches.'
+    description: 'Select the rainfall unit used by the station: 1 for millimetres or 0 for inches.'
     index: 5
   - label: Vapor Pressure Deficit (2-mbar, 1-hPa, 0-kPa)
     init_value: 1
     type: NUMBER
     identifier: IN06_VPD_UNIT
-    description: 'Select the VPD unit used by the station: 2 for mbar, 1 for hPa,
-      or 0 for kPa.'
+    description: 'Select the VPD unit used by the station: 2 for mbar, 1 for hPa, or 0 for kPa.'
     index: 6
   outputs:
   - label: PASSKEY
@@ -156,16 +158,14 @@ module:
     type: NUMBER
     identifier: OUT15_RAINEVENT
     sbc: false
-    description: Rainfall accumulated during the current rain event in the unit selected
-      by IN05_DEPTH_UNIT.
+    description: Rainfall accumulated during the current rain event in the unit selected by IN05_DEPTH_UNIT.
     index: 15
   - label: Hourly rain
     init_value: 0
     type: NUMBER
     identifier: OUT16_RAINHOUR
     sbc: false
-    description: Rainfall accumulated over the current hour in the unit selected by
-      IN05_DEPTH_UNIT.
+    description: Rainfall accumulated over the current hour in the unit selected by IN05_DEPTH_UNIT.
     index: 16
   - label: Daily rain
     init_value: 0
